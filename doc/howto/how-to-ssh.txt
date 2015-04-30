@@ -1,0 +1,4 @@
+IP di default: 192.168.1.254
+
+User: root
+Pass: olimex

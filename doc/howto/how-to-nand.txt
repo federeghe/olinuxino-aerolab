@@ -1,0 +1,68 @@
+Today I successfully installed the official Debian Image into A20-OLinuXino's flash.
+
+First, download and uncompress this file which contains the bootloader and an image of the flash partition scheme:
+
+http://dtmh.de/files/olinuxino-a20-flashinstall.zip
+
+After that, change into the folder which contains the uncompressed files.
+
+Now, here is the quick recipe:
+
+#############################################################################
+# HOWTO install a running SD-card image to A20-OLinuXino NAND flash 
+#
+# The following steps must be executed as root and on a running SD-card image!
+#
+# Sunxi kernel 3.4.43 or later is required. 
+# Tested with official Olimex Debian Wheezy image with kernel 3.4.61+
+#
+# The flash partition scheme will looks like follow:
+# /dev/nanda is BOOT device
+# /dev/nandc is ROOT device
+# /dev/nandb is MAGIC device
+#
+#############################################################################
+
+# First of all, make sure that all nand devices /dev/nand* are unmounted 
+# (check output of mount if you are not sure)
+
+# Copy A20 flash partition image to NAND flash
+tar -xzOf nand_part.gz | dd of=/dev/nand
+sync
+
+# reboot to make new partitions available
+reboot
+
+# after reboot: create filesystems
+mkfs.vfat /dev/nanda
+mkfs.ext4 /dev/nandc
+echo -e 'ANDROID!\0\0\0\0\0\0\0\0\c' > /dev/nandb
+
+# mount new filesystems
+mkdir /mnt/nanda
+mkdir /mnt/nandc
+mount /dev/nanda /mnt/nanda
+mount /dev/nandc /mnt/nandc
+
+# install bootloader to /dev/nanda
+rm -rf /mnt/nanda/*
+rsync -avc bootloader/* /mnt/nanda
+
+# copy script.bin and uImage into new root device under /boot
+mount /dev/mmcblk0p1 /boot
+rsync -avc /boot/script.bin /boot/uImage /mnt/nandc/boot/
+
+# if you need additional kernel arguments, you can create a uEnv.txt file under
+# /mnt/nandc/boot/ wich contains the following line:
+extraargs=<your extra kernel args here>
+
+# copy rootfs
+rsync -avc --exclude-from=exclude.txt / /mnt/nandc
+sync
+
+# shutdown and remove SD card
+shutdown -h now
+
+# now power on the device and it should boot from NAND!
+
+Enjoy!

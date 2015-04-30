@@ -1,0 +1,4 @@
+Eseguire /root/change_display_a20_olimex.sh
+
+
+Per calibrare il touch screen eseguire: sudo ts_calibrate
