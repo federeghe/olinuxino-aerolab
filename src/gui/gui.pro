@@ -2,9 +2,12 @@
     error( "Couldn't find the common.pri file!" )
 }
 
-#FORMS += gui.ui
-#HEADERS += gui.h
-SOURCES += test.cpp
+QT += widgets serialport
+
+FORMS += mainwindow.ui
+INCLUDEPATH += include/
+HEADERS += include/mainwindow.hpp
+SOURCES += mainwindow.cpp
 
 # Will build in the main project directory.
 TARGET = ../build/gui

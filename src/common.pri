@@ -3,6 +3,7 @@ INCLUDEPATH += . ..
 WARNINGS += -Wall
 
 TEMPLATE = lib
+CONFIG += staticlib	# If you want shared library remove this line
 
 # The following keeps the generated files at least somewhat separate 
 # from the source files.

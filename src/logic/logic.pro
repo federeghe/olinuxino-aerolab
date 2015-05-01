@@ -1,8 +1,14 @@
-TEMPLATE = app
+! include( ../common.pri ) {
+    error( "Couldn't find the common.pri file!" )
+}
 
-SOURCES += main.cpp
+#QT += widgets serialport
 
-LIBS += -L../build -lgui
+#FORMS += mainwindow.ui
+#INCLUDEPATH += include/
+#HEADERS += include/mainwindow.hpp
+#SOURCES += mainwindow.cpp
 
-# Will build the final executable in the main project directory.
-TARGET = ../build/project
+# Will build in the main project directory.
+TARGET = ../build/logic
+
