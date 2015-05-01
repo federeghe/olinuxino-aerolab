@@ -1,5 +1,10 @@
 # Only call subdirectory pro files
 
 TEMPLATE = subdirs
-SUBDIRS = logic gui
+SUBDIRS = gui
+
+# logic must be last (for main):
+CONFIG += ordered
+SUBDIRS += logic
+
 
