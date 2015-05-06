@@ -19,6 +19,12 @@
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
        <widget class="QPushButton" name="connectButton">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>50</height>
+         </size>
+        </property>
         <property name="font">
          <font>
           <pointsize>15</pointsize>
@@ -31,6 +37,12 @@
       </item>
       <item>
        <widget class="QPushButton" name="settingsButton">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>50</height>
+         </size>
+        </property>
         <property name="font">
          <font>
           <pointsize>15</pointsize>
@@ -38,6 +50,24 @@
         </property>
         <property name="text">
          <string>Settings...</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="quitButton">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>15</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Quit</string>
         </property>
        </widget>
       </item>
@@ -89,8 +119,6 @@ p, li { white-space: pre-wrap; }
      </widget>
     </item>
    </layout>
-   <zorder>horizontalLayoutWidget</zorder>
-   <zorder>tabWidget</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

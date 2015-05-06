@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
 
     // Display the main window
     MainWindow w;
-    w.show();
+    w.showFullScreen();
 
     // Exec the main QT application
     return a.exec();
