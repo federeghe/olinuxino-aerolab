@@ -40,14 +40,14 @@ public:
     ~SettingsDialog();
 
 	// Settings - SERIAL:
-	const QString& get_ser_port()		const { return this->ser_port; }
-	int get_ser_baud_rate() 			const { return this->ser_baud_rate; }
-	unsigned char get_ser_data_bits()	const { return this->ser_data_bits; }
-	ser_stop_bits_t get_ser_stop_bits()		const { return this->ser_stop_bits; }
+	const QString& get_ser_port()				const { return this->ser_port; }
+	int get_ser_baud_rate() 					const { return this->ser_baud_rate; }
+	unsigned char get_ser_data_bits()			const { return this->ser_data_bits; }
+	ser_stop_bits_t get_ser_stop_bits()			const { return this->ser_stop_bits; }
 	ser_parity_t get_ser_parity() 				const { return this->ser_parity; }
-	ser_flow_control_t get_ser_flow_control() 		const { return this->ser_flow_control; }
-	bool get_ser_carrier_detect() 		const { return this->ser_carrier_detect; }
-	bool get_ser_parity_check() 		const { return this->ser_parity_check; }
+	ser_flow_control_t get_ser_flow_control() 	const { return this->ser_flow_control; }
+	bool get_ser_carrier_detect() 				const { return this->ser_carrier_detect; }
+	bool get_ser_parity_check() 				const { return this->ser_parity_check; }
 
 protected:
 	virtual void showEvent(QShowEvent * event);	// overridden
