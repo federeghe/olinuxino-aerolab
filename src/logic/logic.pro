@@ -2,12 +2,12 @@
     error( "Couldn't find the common.pri file!" )
 }
 
-#QT += widgets serialport
+QT += serialport
 
 #FORMS += mainwindow.ui
-#INCLUDEPATH += include/
-#HEADERS += include/mainwindow.hpp
-#SOURCES += mainwindow.cpp
+INCLUDEPATH += include/
+HEADERS += include/serialport.hpp
+SOURCES += serialport.cpp
 
 # Will build in the main project directory.
 TARGET = ../build/logic
