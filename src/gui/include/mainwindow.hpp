@@ -19,11 +19,11 @@ public:
     ~MainWindow();
 
 private slots:
-####void connect_to_serial();
-####void putRawData();
+    void connect_to_serial();
+    void putRawData();
 private:
 
-####void set_signal_slots();
+    void set_signal_slots();
 
     Ui::MainWindow *ui;
     SettingsDialog *settings;
