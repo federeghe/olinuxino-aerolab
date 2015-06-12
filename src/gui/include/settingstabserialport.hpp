@@ -1,15 +1,14 @@
-#ifndef GUI_SETTINGSDIALOG_H
-#define GUI_SETTINGSDIALOG_H
+#ifndef GUI_SETTINGSTABSERIALPORT_H
+#define GUI_SETTINGSTABSERIALPORT_H
 
-#include <QShowEvent>
-#include <QtCore/QtGlobal>
+#include "settingstab.hpp"
+
+#include <QTabWidget>
 #include <QRadioButton>
-#include <QtWidgets/QDialog>
 
 namespace Ui {
-    class Dialog;
+    class TabSerialPort;
 }
-
 
 typedef enum {
 	ONE=1,
@@ -31,15 +30,21 @@ typedef enum {
 	HARDWARE=1
 } ser_flow_control_t;
 
-class SettingsDialog : public QDialog
-{
-    Q_OBJECT
+/*! Class for tab of serialport.
+ */
+class SettingsTabSerialPort : public SettingsTab {
 
 public:
-    explicit SettingsDialog(QStringList ports_available, QWidget *parent = 0);
-    ~SettingsDialog();
 
-	// Settings - SERIAL:
+	// Construtor/Destructor
+	explicit SettingsTabSerialPort(QStringList ports_available);
+	~SettingsTabSerialPort();	// Overridden
+
+	// Abstract methods implementation:
+	void save_settings();
+	void restore_settings();
+
+	// Variuos getters:	
 	int get_ser_port()							const { return this->ser_port; }
 	int get_ser_baud_rate() 					const { return this->ser_baud_rate; }
 	unsigned char get_ser_data_bits()			const { return this->ser_data_bits; }
@@ -49,18 +54,9 @@ public:
 	bool get_ser_carrier_detect() 				const { return this->ser_carrier_detect; }
 	bool get_ser_parity_check() 				const { return this->ser_parity_check; }
 
-protected:
-	virtual void showEvent(QShowEvent * event);	// overridden
-
-private slots:
-	void save_settings();
-
-
 private:
-	
-	void set_signal_slots();
 
-    Ui::Dialog *ui;
+    Ui::TabSerialPort *ui;
     
     // Settings - SERIAL:
     QStringList ser_ports_available;
@@ -75,6 +71,7 @@ private:
 
 	QRadioButton **bitsRadio;
 	QRadioButton **stopRadio;
+
 
 };
 

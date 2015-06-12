@@ -1,9 +1,9 @@
 TEMPLATE = app
 
-QT += gui widgets
-LIBS += -L../build -lgui
+QT += gui widgets serialport
+LIBS += -L../build -lgui -llogic
 
-INCLUDEPATH += include/ ../gui/include/
+INCLUDEPATH += include/ ../gui/include/ ../logic/include/
 
 SOURCES += main.cpp
 

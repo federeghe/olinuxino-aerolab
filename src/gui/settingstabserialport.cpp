@@ -1,31 +1,28 @@
-#include <QtWidgets/QWidget>
-#include <QDebug>
-#include "settingsdialog.hpp"
-#include "ui_settingsdialog.h"
+#include "settingstabserialport.hpp"
+#include "ui_settingstabserialport.h"
 
-SettingsDialog::SettingsDialog(QStringList ports_available, QWidget *parent) : QDialog(parent), ui(new Ui::Dialog),
+#include <QShowEvent>
+#include <QtCore/QtGlobal>
 
-	ser_ports_available(ports_available),
-	// Default values for serial port
-	ser_port(-1), ser_baud_rate(9600), ser_data_bits(8), ser_stop_bits(ONE), ser_parity(NO_PARITY),
-	ser_flow_control(XON_XOFF), ser_carrier_detect(false), ser_parity_check(false)
 
-{
-    ui->setupUi(this);
-    this->set_signal_slots();
-    
-    this->bitsRadio  = new QRadioButton*[5] {ui->bits5Radio, ui->bits6Radio, ui->bits7Radio, ui->bits8Radio, ui->bits9Radio };
-    this->stopRadio  = new QRadioButton*[3] {ui->stopbits1Radio, ui->stopbits15Radio, ui->stopbits2Radio };
+SettingsTabSerialPort::SettingsTabSerialPort(QStringList ports_available) 
+                                        : ser_ports_available(ports_available) {
+                                             
+	ui->setupUi(this);
+
+	// Init radio choices pointers:
+    this->bitsRadio  = new QRadioButton*[5]
+    		{ui->bits5Radio, ui->bits6Radio, ui->bits7Radio, ui->bits8Radio, ui->bits9Radio };
+    this->stopRadio  = new QRadioButton*[3]
+            {ui->stopbits1Radio, ui->stopbits15Radio, ui->stopbits2Radio };
 }
 
-SettingsDialog::~SettingsDialog()
-{
+SettingsTabSerialPort::~SettingsTabSerialPort() {
 	delete[] this->bitsRadio;
 	delete[] this->stopRadio;
 }
 
-void SettingsDialog::save_settings() {
-
+void SettingsTabSerialPort::save_settings() {
 	// Save combobox values:
 	this->ser_baud_rate 	= ui->baudrateCmb->currentText().toInt();
 	this->ser_parity		= (ser_parity_t) ui->parityCmb->currentIndex();
@@ -57,9 +54,7 @@ void SettingsDialog::save_settings() {
 	emit this->close();
 }
 
-void SettingsDialog::showEvent(QShowEvent * event) {
-	
-	if (!event->spontaneous()) {
+void SettingsTabSerialPort::restore_settings() {
 		ui->baudrateCmb->setCurrentIndex(ui->baudrateCmb->findText(QString::number(this->ser_baud_rate)));
 		
 
@@ -80,12 +75,5 @@ void SettingsDialog::showEvent(QShowEvent * event) {
 		}
 		if(ser_port > 0)
 			ui->portCmb->setCurrentIndex(ser_port);
-	}
-	QDialog::showEvent(event);	// let's call the superclass method
 }
 
-void SettingsDialog::set_signal_slots()
-{
-    connect(ui->buttonBox, SIGNAL(rejected()), this, SLOT(close()));
-    connect(ui->buttonBox, SIGNAL(accepted()), this, SLOT(save_settings()));
-}
