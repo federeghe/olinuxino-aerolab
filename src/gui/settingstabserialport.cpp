@@ -6,7 +6,14 @@
 
 
 SettingsTabSerialPort::SettingsTabSerialPort(QStringList ports_available) 
-                                        : ser_ports_available(ports_available) {
+    :
+    ui(new Ui::SettingsTabSerialPort),
+    
+    ser_ports_available(ports_available),
+    // Default values for serial port
+    ser_port(-1), ser_baud_rate(9600), ser_data_bits(8), ser_stop_bits(ONE), ser_parity(NO_PARITY),
+    ser_flow_control(XON_XOFF), ser_carrier_detect(false), ser_parity_check(false)
+    {
                                              
     ui->setupUi(this);
 
@@ -49,9 +56,6 @@ void SettingsTabSerialPort::save_settings() {
 
 
     this->ser_port = ui->portCmb->currentIndex();
-    
-    // Ok, all saved, let close the dialog
-    emit this->close();
 }
 
 void SettingsTabSerialPort::restore_settings() {

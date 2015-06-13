@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>TabSerialPort</class>
-  <widget class="QTabWidget" name="TabSerialPort">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>10</y>
-     <width>551</width>
-     <height>351</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>12</pointsize>
-    </font>
-   </property>
-   <widget class="QWidget" name="serialTab">
+ <class>SettingsTabSerialPort</class>
+   <widget class="QWidget" name="SettingsTabSerialPort">
     <attribute name="title">
      <string>Serial port</string>
     </attribute>
@@ -451,7 +437,7 @@
      </layout>
     </widget>
    </widget>
-  </widget>
+
  <resources/>
  <connections/>
 </ui>

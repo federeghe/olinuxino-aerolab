@@ -4,7 +4,7 @@
 #include <QtCore/QtGlobal>
 #include <QtWidgets/QMainWindow>
 #include "settingsdialog.hpp"
-#include "serialport.hpp"
+#include "rawserialtab.hpp"
 
 namespace Ui {
     class MainWindow;
@@ -15,7 +15,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit MainWindow(SerialPort *sp, QWidget *parent = 0);
+    explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
 private slots:
@@ -27,7 +27,8 @@ private:
 
     Ui::MainWindow *ui;
     SettingsDialog *settings;
-    SerialPort *serialPort;
+	RawSerialTab *rawSerial;
+
 
 };
 

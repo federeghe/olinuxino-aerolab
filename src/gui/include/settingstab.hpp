@@ -1,14 +1,17 @@
+#ifndef GUI_SETTINGSTAB_H
+#define GUI_SETTINGSTAB_H
+
 #include <QTabWidget>
 
 /*! This abstract class represents a tab in the settings dialog.
  *
  * 
  */
-class SettingsTab : public QTabWidget {
+class SettingsTab : public QWidget {
 
 public:
     
-    SettingsTab() : QTabWidget(0)   // We do not know what my parent is, 
+    SettingsTab() : QWidget(0)   // We do not know what my parent is, 
                                  // so call super costructor with 0 
     {}
     
@@ -23,4 +26,8 @@ public:
                                                     or when the dialog is open, NOT
                                                     only on first time */
 
+	virtual const char* get_name() const  = 0; /*! This method returns the name for the tab */
+
 };
+
+#endif

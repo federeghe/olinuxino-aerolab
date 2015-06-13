@@ -3,13 +3,21 @@
 
 #include <QTextStream>
 #include <QScrollBar>
+#include <vector>
 
-MainWindow::MainWindow(SerialPort *sp, QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
+MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
 
-    this->serialPort = sp;
-    this->settings = new SettingsDialog(sp->get_list());
+	rawSerial = new RawSerialTab();
+	ui->tabWidget->addTab(rawSerial, tr("Raw Serial"));
+
+    // Create the settings tab:
+    std::vector <SettingsTab *> st;
+	st.push_back(rawSerial->get_settings_tab());
+	
+    
+    this->settings = new SettingsDialog(st);	// st is cleared by settingsdialog
     
     this->set_signal_slots();
 }
@@ -21,7 +29,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::connect_to_serial() {
     static bool connected = false;
-
+/*
     if (connected) {
         this->serialPort->close();
         ui->connectButton->setText("Connect");
@@ -51,12 +59,12 @@ void MainWindow::connect_to_serial() {
             } else {
                 ui->rawDataEdit->append("-- UNABLE TO CONNECT.\n\n");
             }
-    }
+    }*/
 }
 
 void MainWindow::putRawData()
 {
-    // Read data
+/*    // Read data
     QByteArray data = this->serialPort->readRawData();
 
     // Add text
@@ -64,7 +72,7 @@ void MainWindow::putRawData()
 
     // Then scroll to down
     QScrollBar *bar = ui->rawDataEdit->verticalScrollBar();
-    bar->setValue(bar->maximum());
+    bar->setValue(bar->maximum());*/
 }
 
 void MainWindow::set_signal_slots()
@@ -72,5 +80,5 @@ void MainWindow::set_signal_slots()
     connect(ui->quitButton, SIGNAL(clicked()), this, SLOT(close()));
     connect(ui->settingsButton, SIGNAL(clicked()), this->settings, SLOT(exec()));
     connect(ui->connectButton, SIGNAL(clicked()), this, SLOT(connect_to_serial()));
-    connect(this->serialPort, SIGNAL(readyRead()), this, SLOT(putRawData()));
+    
 }

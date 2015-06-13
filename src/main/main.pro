@@ -3,7 +3,7 @@ TEMPLATE = app
 QT += gui widgets serialport
 LIBS += -L../build -lgui -llogic
 
-INCLUDEPATH += include/ ../gui/include/ ../logic/include/
+INCLUDEPATH += include/ ../gui/include/ ../logic/include/ ../
 
 SOURCES += main.cpp
 
