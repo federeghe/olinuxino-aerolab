@@ -33,7 +33,7 @@ typedef enum {
 /*! Class for tab of serialport.
  */
 class SettingsTabSerialPort : public SettingsTab {
-
+        Q_OBJECT
 public:
 
     // Construtor/Destructor

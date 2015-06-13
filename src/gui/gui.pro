@@ -2,7 +2,7 @@
     error( "Couldn't find the common.pri file!" )
 }
 
-QT += widgets serialport
+QT += widgets serialport gui
 
 FORMS += mainwindow.ui settingsdialog.ui settingstabserialport.ui rawserialtab.ui
 INCLUDEPATH += include/ ../logic/include/

@@ -10,7 +10,7 @@ namespace Ui {
  *
  */
 class RawSerialTab : public QWidget {
-
+    Q_OBJECT
 public:
     
     RawSerialTab();
@@ -41,14 +41,14 @@ public:
 	/*! Returns the settings tab to add to settings window
 	 *
 	 */
-	SettingsTab* get_settings_tab() const {return this->settingsTab; }
+	SettingsTab* get_settings_tab() const {return this->settings_tab; }
 
 private:
 
 	Ui::RawSerialTab *ui;
 
-	SettingsTabSerialPort *settingsTab;
-	SerialPort *serialPort;
+	SettingsTabSerialPort *settings_tab;
+	SerialPort *serial_port;
 	QStringList list_ports_available;
 
 };
