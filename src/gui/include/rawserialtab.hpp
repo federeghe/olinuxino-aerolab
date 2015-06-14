@@ -13,7 +13,12 @@ class RawSerialTab : public QWidget {
     Q_OBJECT
 public:
     
-    RawSerialTab();
+    /*! The constructor. Initialize the serial port object and
+     * the list of available ports.
+     */
+    explicit RawSerialTab();
+    
+    /*! The destructor */
     ~RawSerialTab();
     
     /*! This method returns the list of all available serial ports.
@@ -33,15 +38,15 @@ public:
 	 */
 	bool serial_disconnect();
 
-	/*! Add a slot to serial receive data
-	 *
+	/*! Add a slot to serial receive data. The slot is called when
+	 *  new data is available on serial.
 	 */
 	void add_slot(const char*);
 
 	/*! Returns the settings tab to add to settings window
 	 *
 	 */
-	SettingsTab* get_settings_tab() const {return this->settings_tab; }
+	SettingsTab* get_settings_tab() const { return this->settings_tab; }
 
 private:
 

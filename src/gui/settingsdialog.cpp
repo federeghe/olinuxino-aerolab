@@ -9,7 +9,7 @@ SettingsDialog::SettingsDialog( std::vector<SettingsTab*> st, QWidget *parent) :
     ui->setupUi(this);
     this->set_signal_slots();
     
-    settingsTab = st; // new SettingsTab*[1];
+    settingsTab = st; // Copy the settings tab pointers
     for (auto s : st) {
     	ui->tabWidget->addTab(s, tr(s->get_name()));
     }
@@ -17,6 +17,7 @@ SettingsDialog::SettingsDialog( std::vector<SettingsTab*> st, QWidget *parent) :
 
 SettingsDialog::~SettingsDialog()
 {
+	// We have to delete all settings tab
     for (auto tab : this->settingsTab) {
     	delete tab;
     }

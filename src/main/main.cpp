@@ -3,6 +3,8 @@
 
 #include "mainwindow.hpp"
 
+/*! The entrypoint of our application.
+ */
 int main(int argc, char *argv[])
 {
 

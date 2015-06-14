@@ -20,6 +20,8 @@ RawSerialTab::~RawSerialTab() {
 }
 
 void RawSerialTab::add_slot(const char* slot) {
+	// Connect a slot to readiness of serial receiver. Usually
+	// only one slot has sense: only one can read from serial port.
 	connect(this->serial_port, SIGNAL(readyRead()), this, slot);
 }
 
