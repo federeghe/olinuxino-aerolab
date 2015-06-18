@@ -48,8 +48,11 @@ public:
 	 */
 	SettingsTab* get_settings_tab() const { return this->settings_tab; }
 
-private:
+private slots:
 
+	void printToDataEdit();
+
+private:
 	Ui::RawSerialTab *ui;
 
 	SettingsTabSerialPort *settings_tab;

@@ -1,6 +1,8 @@
 #include "rawserialtab.hpp"
 #include "ui_rawserialtab.h"
 
+#include <QScrollBar>
+
 RawSerialTab::RawSerialTab() : QWidget(0), ui(new Ui::RawSerialTab) {
 
 	ui->setupUi(this);
@@ -13,6 +15,8 @@ RawSerialTab::RawSerialTab() : QWidget(0), ui(new Ui::RawSerialTab) {
 	
 	// Create the settingstab
 	this->settings_tab = new SettingsTabSerialPort(list_ports_available);
+	
+	this->add_slot(SLOT(printToDataEdit()));
 }
 
 RawSerialTab::~RawSerialTab() {
@@ -59,3 +63,11 @@ bool RawSerialTab::serial_disconnect() {
         return true;
 }
 
+void RawSerialTab::printToDataEdit() {
+    QByteArray data = this->serial_port->readRawData();
+    // Add text
+    ui->rawDataEdit->append(QString(data));
+    // Then scroll to down
+    QScrollBar *bar = ui->rawDataEdit->verticalScrollBar();
+    bar->setValue(bar->maximum());
+}
