@@ -7,7 +7,7 @@
  */
 class SerialPort : public QSerialPort
 {
-	Q_OBJECT
+
 public:
 	/*! It creates a new SerialPort object. You have to create a new object
 	 *  every time resources (i.e. available serial port in the system) change.
