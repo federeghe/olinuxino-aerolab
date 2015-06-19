@@ -9,11 +9,11 @@ class SerialPort : public QSerialPort
 {
 
 public:
-	/*! It creates a new SerialPort object. You have to create a new object
-	 *  every time resources (i.e. available serial port in the system) change.
-	 *  Trying to open a serial port that doesn't exist anymore, produce an
-	 *  unpredictable behaviour.
-	 */
+    /*! It creates a new SerialPort object. You have to create a new object
+     *  every time resources (i.e. available serial port in the system) change.
+     *  Trying to open a serial port that doesn't exist anymore, produce an
+     *  unpredictable behaviour.
+     */
     SerialPort();
     ~SerialPort();
     
@@ -23,13 +23,13 @@ public:
      */
     QStringList get_list() const;
 
-	/*! A wapper for open() method: it accepts all serial parameters and
-	 * open the object. You can also call directly single options and
-	 * open it.
-	 *
-	 * \note carrier_detect and parity_check is ignored due to missing
-	 *       implementation in Qt 
-	 */
+    /*! A wapper for open() method: it accepts all serial parameters and
+     * open the object. You can also call directly single options and
+     * open it.
+     *
+     * \note carrier_detect and parity_check is ignored due to missing
+     *       implementation in Qt 
+     */
     bool open_port(int selected, int baud_rate, int data_bits, int stop_bits,
               int parity, int flow_control, bool carrier_detect, 
               bool parity_check);

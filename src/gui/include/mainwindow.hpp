@@ -39,7 +39,7 @@ private:
 
     Ui::MainWindow *ui;
     SettingsDialog *settings;
-	RawSerialTab *raw_serial;
+    RawSerialTab *raw_serial;
 
 };
 

@@ -68,17 +68,17 @@ public:
     int get_ser_port()                          const { return this->ser_port; }
     /*! Getter for baud rate */
     int get_ser_baud_rate()                     const { return this->ser_baud_rate; }
-	/*! Getter for data bits */
+    /*! Getter for data bits */
     unsigned char get_ser_data_bits()           const { return this->ser_data_bits; }
-	/*! Getter for stop bits */
+    /*! Getter for stop bits */
     ser_stop_bits_t get_ser_stop_bits()         const { return this->ser_stop_bits; }
     /*! Getter for parity bits */
     ser_parity_t get_ser_parity()               const { return this->ser_parity; }
-	/*! Getter for flow control */
+    /*! Getter for flow control */
     ser_flow_control_t get_ser_flow_control()   const { return this->ser_flow_control; }
     /*! Getter for carrier detect */
     bool get_ser_carrier_detect()               const { return this->ser_carrier_detect; }
-	/*! Getter for parity check */
+    /*! Getter for parity check */
     bool get_ser_parity_check()                 const { return this->ser_parity_check; }
 
 private:

@@ -5,28 +5,28 @@
 
 RawSerialTab::RawSerialTab() : QWidget(0), ui(new Ui::RawSerialTab) {
 
-	ui->setupUi(this);
+    ui->setupUi(this);
 
-	// Create a generic serialport object.
-	this->serial_port = new SerialPort();
+    // Create a generic serialport object.
+    this->serial_port = new SerialPort();
 
-	// Read the list of all available ports.
-	list_ports_available = serial_port->get_list();
-	
-	// Create the settingstab
-	this->settings_tab = new SettingsTabSerialPort(list_ports_available);
-	
-	this->add_slot(SLOT(printToDataEdit()));
+    // Read the list of all available ports.
+    list_ports_available = serial_port->get_list();
+    
+    // Create the settingstab
+    this->settings_tab = new SettingsTabSerialPort(list_ports_available);
+    
+    this->add_slot(SLOT(printToDataEdit()));
 }
 
 RawSerialTab::~RawSerialTab() {
-	delete this->serial_port;
+    delete this->serial_port;
 }
 
 void RawSerialTab::add_slot(const char* slot) {
-	// Connect a slot to readiness of serial receiver. Usually
-	// only one slot has sense: only one can read from serial port.
-	connect(this->serial_port, SIGNAL(readyRead()), this, slot);
+    // Connect a slot to readiness of serial receiver. Usually
+    // only one slot has sense: only one can read from serial port.
+    connect(this->serial_port, SIGNAL(readyRead()), this, slot);
 }
 
 bool RawSerialTab::serial_connect() {
@@ -43,12 +43,12 @@ bool RawSerialTab::serial_connect() {
                                 this->settings_tab->get_ser_flow_control(),
                                 this->settings_tab->get_ser_carrier_detect(),
                                 this->settings_tab->get_ser_parity_check()                                
-                                )	// End of open port
+                                )    // End of open port
                                 
-            )	// End of if 
+            )    // End of if 
             {
                 ui->rawDataEdit->append("++ CONNECTED!\n\n");
-				return true;
+                return true;
             } else {
                 ui->rawDataEdit->append("-- UNABLE TO CONNECT.\n\n");
                 return false;

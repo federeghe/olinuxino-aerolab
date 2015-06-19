@@ -27,36 +27,36 @@ public:
      */
     QStringList get_list_ports_available() const { return this->list_ports_available; }
 
-	/*! Connect signal. When you call this, the serial port is (hopefully) opened and
-	 * the received text start to be written in console.
-	 * \return true in case of success, false otherwise.
-	 */
-	bool serial_connect();
-	
-	/*! Disconnect signal: close the serial port.
-	 * \return always true
-	 */
-	bool serial_disconnect();
+    /*! Connect signal. When you call this, the serial port is (hopefully) opened and
+     * the received text start to be written in console.
+     * \return true in case of success, false otherwise.
+     */
+    bool serial_connect();
+    
+    /*! Disconnect signal: close the serial port.
+     * \return always true
+     */
+    bool serial_disconnect();
 
-	/*! Add a slot to serial receive data. The slot is called when
-	 *  new data is available on serial.
-	 */
-	void add_slot(const char*);
+    /*! Add a slot to serial receive data. The slot is called when
+     *  new data is available on serial.
+     */
+    void add_slot(const char*);
 
-	/*! Returns the settings tab to add to settings window
-	 *
-	 */
-	SettingsTab* get_settings_tab() const { return this->settings_tab; }
+    /*! Returns the settings tab to add to settings window
+     *
+     */
+    SettingsTab* get_settings_tab() const { return this->settings_tab; }
 
 private slots:
 
-	void printToDataEdit();
+    void printToDataEdit();
 
 private:
-	Ui::RawSerialTab *ui;
+    Ui::RawSerialTab *ui;
 
-	SettingsTabSerialPort *settings_tab;
-	SerialPort *serial_port;
-	QStringList list_ports_available;
+    SettingsTabSerialPort *settings_tab;
+    SerialPort *serial_port;
+    QStringList list_ports_available;
 
 };

@@ -18,15 +18,15 @@ public:
     // so declare the virtual destructor
     virtual ~SettingsTab(){}
 
-	/*! This method is called when the user press "save" button */
+    /*! This method is called when the user press "save" button */
     virtual void save_settings()          = 0;  
 
     /*! This method is called when the user press "reset" button 
      *  or when the dialog is open, NOT ONLY on first time */
     virtual void restore_settings()       = 0;  
 
-	/*! This method returns the name for the tab */
-	virtual const char* get_name() const  = 0; 
+    /*! This method returns the name for the tab */
+    virtual const char* get_name() const  = 0; 
 
 };
 

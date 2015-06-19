@@ -27,15 +27,15 @@
 #define SW_PORTC_IO_BASE 0x01c20800
 
 
-#define SUNXI_GPIO_A	0
-#define SUNXI_GPIO_B	1
-#define SUNXI_GPIO_C	2
-#define SUNXI_GPIO_D	3
-#define SUNXI_GPIO_E	4
-#define SUNXI_GPIO_F	5
-#define SUNXI_GPIO_G	6
-#define SUNXI_GPIO_H	7
-#define SUNXI_GPIO_I	8
+#define SUNXI_GPIO_A    0
+#define SUNXI_GPIO_B    1
+#define SUNXI_GPIO_C    2
+#define SUNXI_GPIO_D    3
+#define SUNXI_GPIO_E    4
+#define SUNXI_GPIO_F    5
+#define SUNXI_GPIO_G    6
+#define SUNXI_GPIO_H    7
+#define SUNXI_GPIO_I    8
 
 struct sunxi_gpio {
     unsigned int cfg[4];
@@ -58,25 +58,25 @@ struct sunxi_gpio_reg {
     struct sunxi_gpio_int gpio_int;
 };
 
-#define GPIO_BANK(pin)	((pin) >> 5)
-#define GPIO_NUM(pin)	((pin) & 0x1F)
+#define GPIO_BANK(pin)    ((pin) >> 5)
+#define GPIO_NUM(pin)    ((pin) & 0x1F)
 
-#define GPIO_CFG_INDEX(pin)	(((pin) & 0x1F) >> 3)
-#define GPIO_CFG_OFFSET(pin)	((((pin) & 0x1F) & 0x7) << 2)
+#define GPIO_CFG_INDEX(pin)    (((pin) & 0x1F) >> 3)
+#define GPIO_CFG_OFFSET(pin)    ((((pin) & 0x1F) & 0x7) << 2)
 
-#define GPIO_PUL_INDEX(pin)	(((pin) & 0x1F )>> 4) 
-#define GPIO_PUL_OFFSET(pin)	(((pin) & 0x0F) << 1)
+#define GPIO_PUL_INDEX(pin)    (((pin) & 0x1F )>> 4) 
+#define GPIO_PUL_OFFSET(pin)    (((pin) & 0x0F) << 1)
 
 /* GPIO bank sizes */
-#define SUNXI_GPIO_A_NR		(32)
-#define SUNXI_GPIO_B_NR		(32)
-#define SUNXI_GPIO_C_NR		(32)
-#define SUNXI_GPIO_D_NR		(32)
-#define SUNXI_GPIO_E_NR		(32)
-#define SUNXI_GPIO_F_NR		(32)
-#define SUNXI_GPIO_G_NR		(32)
-#define SUNXI_GPIO_H_NR		(32)
-#define SUNXI_GPIO_I_NR		(32)
+#define SUNXI_GPIO_A_NR        (32)
+#define SUNXI_GPIO_B_NR        (32)
+#define SUNXI_GPIO_C_NR        (32)
+#define SUNXI_GPIO_D_NR        (32)
+#define SUNXI_GPIO_E_NR        (32)
+#define SUNXI_GPIO_F_NR        (32)
+#define SUNXI_GPIO_G_NR        (32)
+#define SUNXI_GPIO_H_NR        (32)
+#define SUNXI_GPIO_I_NR        (32)
 
 #define SUNXI_GPIO_NEXT(__gpio) ((__gpio##_START)+(__gpio##_NR)+0)
 
@@ -88,7 +88,7 @@ enum sunxi_gpio_number {
     SUNXI_GPIO_E_START = SUNXI_GPIO_NEXT(SUNXI_GPIO_D), //128
     SUNXI_GPIO_F_START = SUNXI_GPIO_NEXT(SUNXI_GPIO_E), //160
     SUNXI_GPIO_G_START = SUNXI_GPIO_NEXT(SUNXI_GPIO_F), //192
-    SUNXI_GPIO_H_START = SUNXI_GPIO_NEXT(SUNXI_GPIO_G), //224	
+    SUNXI_GPIO_H_START = SUNXI_GPIO_NEXT(SUNXI_GPIO_G), //224    
     SUNXI_GPIO_I_START = SUNXI_GPIO_NEXT(SUNXI_GPIO_H) //256
 };
 

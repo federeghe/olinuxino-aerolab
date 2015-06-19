@@ -5,7 +5,7 @@
 #define UNUSED(x) (void)(x)        // Macro to avoid warning
 
 SerialPort::SerialPort() : QSerialPort() {
-	// Save the current serial port info.
+    // Save the current serial port info.
     this->infos = QSerialPortInfo::availablePorts();    
 }
 
@@ -18,7 +18,7 @@ QStringList SerialPort::get_list() const {
     QStringList to_return;
     
     foreach(QSerialPortInfo info, this->infos) {
-    	// We return the info in this format: "name (desription)"
+        // We return the info in this format: "name (desription)"
         to_return << info.portName() + " (" + (!info.description().isEmpty() ? info.description() : "no info") + ")";
     }
     

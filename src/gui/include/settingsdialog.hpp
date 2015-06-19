@@ -21,17 +21,17 @@ class SettingsDialog : public QDialog
     Q_OBJECT
 
 public:
-	/*! Constructor for setting dialog. You have to pass the list of settings tab
-	 *  and, in case, the parent window. The second parameter is not generally necessary.
-	 *  NOTE: the destructor delete also all settingstab present in vector passed.
-	 */
+    /*! Constructor for setting dialog. You have to pass the list of settings tab
+     *  and, in case, the parent window. The second parameter is not generally necessary.
+     *  NOTE: the destructor delete also all settingstab present in vector passed.
+     */
     explicit SettingsDialog(std::vector <SettingsTab*> st, QWidget *parent = 0);
     ~SettingsDialog();
 
 protected:
-	/*! Overridden method of QDialog
-	 * @override
-	 */
+    /*! Overridden method of QDialog
+     * @override
+     */
     virtual void showEvent(QShowEvent * event);
 
 private slots:
@@ -40,7 +40,7 @@ private slots:
 
 private:
 
-	std::vector<SettingsTab *> settingsTab;	// A list of settings tab
+    std::vector<SettingsTab *> settingsTab;    // A list of settings tab
     Ui::Dialog *ui;
     
     void set_signal_slots();
