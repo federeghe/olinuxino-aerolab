@@ -138,10 +138,10 @@ namespace A20 {
 
     }
     
-    void GPIO_output::set(bool x) const {
+    void GPIO_output::set(bool value) const {
         int ret;
         
-        ret = sunxi_gpio_output(port,x);
+        ret = sunxi_gpio_output(port,value);
         if (ret < 0)
             throw new GPIO_exception("unable to write gpio");
     }
