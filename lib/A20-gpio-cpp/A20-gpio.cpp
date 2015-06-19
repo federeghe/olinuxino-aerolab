@@ -11,7 +11,7 @@ namespace A20 {
 	/* ************************************************************* */
 	/* ********************** GPIO Class *************************** */
 	/* ************************************************************* */
-	void GPIO::init() {
+	void GPIO::init() throw(GPIO_exception) {
 		if(sunxi_gpio_init() < 0) {
 			throw new GPIO_exception("unable to init sunxi");
 		}
