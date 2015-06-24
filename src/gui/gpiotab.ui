@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>GPIOTab</class>
+ <widget class="QWidget" name="GPIOTab">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>220</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QTimeEdit" name="te_refresh_time">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>150</y>
+     <width>200</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="dateTime">
+    <datetime>
+     <hour>0</hour>
+     <minute>0</minute>
+     <second>1</second>
+     <year>2000</year>
+     <month>1</month>
+     <day>1</day>
+    </datetime>
+   </property>
+   <property name="currentSection">
+    <enum>QDateTimeEdit::MinuteSection</enum>
+   </property>
+   <property name="displayFormat">
+    <string>mm:ss.zzz</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="cb_input">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>30</y>
+     <width>200</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::RightToLeft</enum>
+   </property>
+   <property name="text">
+    <string>INPUT GPIO  101</string>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>48</width>
+     <height>48</height>
+    </size>
+   </property>
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbl_refresh">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>150</y>
+     <width>200</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Refresh time:</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="cb_output">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>90</y>
+     <width>200</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::RightToLeft</enum>
+   </property>
+   <property name="text">
+    <string>OUTPUT GPIO 102</string>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>48</width>
+     <height>48</height>
+    </size>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

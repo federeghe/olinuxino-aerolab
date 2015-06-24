@@ -13,6 +13,10 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     raw_serial = new RawSerialTab();
     ui->tabWidget->addTab(raw_serial, tr("Raw Serial"));
 
+	// Create and add the "GPIO" tab:
+	gpio_tab = new GPIOTab();
+	ui->tabWidget->addTab(gpio_tab, tr("GPIOs"));
+
     // Create the various settings tabs (currently only raw serial)
     std::vector <SettingsTab *> st;
     st.push_back(raw_serial->get_settings_tab());
@@ -28,6 +32,7 @@ MainWindow::~MainWindow()
 {
     // Freeing some memory:
     delete raw_serial;
+	delete gpio_tab;
 }
 
 void MainWindow::connect_to_serial() {

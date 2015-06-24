@@ -5,6 +5,7 @@
 #include <QtWidgets/QMainWindow>
 #include "settingsdialog.hpp"
 #include "rawserialtab.hpp"
+#include "gpiotab.hpp"
 
 namespace Ui {
     class MainWindow;
@@ -40,6 +41,7 @@ private:
     Ui::MainWindow *ui;
     SettingsDialog *settings;
     RawSerialTab *raw_serial;
+	GPIOTab *gpio_tab;
 
 };
 
