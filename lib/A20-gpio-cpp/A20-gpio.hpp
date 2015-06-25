@@ -64,7 +64,8 @@ namespace A20 {
      */
     class GPIO_common {
         public:
-            /*!
+        
+            /*!	
              *  \brief It returns the type of GPIO (input, output or periphery).  Probably, you 
              *        don't have to use this (internal library use).
              *  \return 0 if input, 1 if output, 2 if periphery 
@@ -76,6 +77,10 @@ namespace A20 {
              *  \return the port number according to linux enumeration (see datasheet) 
              */
             virtual uint16_t get_port() const = 0;
+
+
+		    virtual ~GPIO_common() {};
+
     };
     
     /*!
@@ -157,7 +162,7 @@ namespace A20 {
              *         before any other method.
              * \exception GPIO_exception In case of initialization error.
              */
-            static void        init() throw(GPIO_exception);
+            static void        init();
 
             /*!
              * \brief  Set the GPIO indicated as input, enable the eventually
@@ -179,7 +184,7 @@ namespace A20 {
              *       100us. If you don't want this behaviour, define a
              *       costant named GPIO_NO_WAIT.
              */
-            static GPIO_input  *get_input(uint16_t port, pull_resistor_t pull_resistor=NONE) throw(GPIO_exception);
+            static GPIO_input  *get_input(uint16_t port, pull_resistor_t pull_resistor=NONE);
             
             /*!
              * \brief  Set the GPIO indicated as output and returns the corresponding
@@ -197,7 +202,7 @@ namespace A20 {
              *       100us. If you don't want this behaviour, define a
              *       costant named GPIO_NO_WAIT.
              */
-            static GPIO_output *get_output(uint16_t port) throw(GPIO_exception);
+            static GPIO_output *get_output(uint16_t port);
             
             /*!
              * \brief  Set the GPIO indicated as periphery and returns the corresponding
@@ -215,7 +220,7 @@ namespace A20 {
              *       100us. If you don't want this behaviour, define a
              *       costant named GPIO_NO_WAIT.
              */
-            static void        set_periphery_mode(uint16_t port) throw(GPIO_exception);
+            static void        set_periphery_mode(uint16_t port);
             
             /*!
              * \brief  Free the corresponding object. 
@@ -229,7 +234,7 @@ namespace A20 {
              *                           you are trying to free a non setted 
              *                           GPIO.
              */
-            static void        free(uint16_t port) throw(GPIO_exception);
+            static void        free(uint16_t port);
         private:
             GPIO();        // You cannot instantiate this object
     

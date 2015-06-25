@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>220</height>
+    <width>415</width>
+    <height>258</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,11 +16,23 @@
   <widget class="QTimeEdit" name="te_refresh_time">
    <property name="geometry">
     <rect>
-     <x>170</x>
+     <x>190</x>
      <y>150</y>
-     <width>200</width>
-     <height>40</height>
+     <width>231</width>
+     <height>91</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">::up-button, ::down-button {
+    width:40px;
+    height:40px;
+}
+
+QTimeEdit {
+
+font-size:22px;
+
+}</string>
    </property>
    <property name="dateTime">
     <datetime>
@@ -44,7 +56,7 @@
     <rect>
      <x>30</x>
      <y>30</y>
-     <width>200</width>
+     <width>300</width>
      <height>35</height>
     </rect>
    </property>
@@ -52,7 +64,7 @@
     <enum>Qt::RightToLeft</enum>
    </property>
    <property name="text">
-    <string>INPUT GPIO  101</string>
+    <string>INPUT GPIO  PI0 (256)</string>
    </property>
    <property name="iconSize">
     <size>
@@ -60,16 +72,13 @@
      <height>48</height>
     </size>
    </property>
-   <property name="checkable">
-    <bool>false</bool>
-   </property>
   </widget>
   <widget class="QLabel" name="lbl_refresh">
    <property name="geometry">
     <rect>
      <x>40</x>
-     <y>150</y>
-     <width>200</width>
+     <y>180</y>
+     <width>350</width>
      <height>35</height>
     </rect>
    </property>
@@ -82,7 +91,7 @@
     <rect>
      <x>30</x>
      <y>90</y>
-     <width>200</width>
+     <width>300</width>
      <height>35</height>
     </rect>
    </property>
@@ -90,13 +99,30 @@
     <enum>Qt::RightToLeft</enum>
    </property>
    <property name="text">
-    <string>OUTPUT GPIO 102</string>
+    <string>OUTPUT GPIO PI1 (257)</string>
    </property>
    <property name="iconSize">
     <size>
      <width>48</width>
      <height>48</height>
     </size>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbl_na">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>15</y>
+     <width>571</width>
+     <height>231</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size:60px;
+color:red;</string>
+   </property>
+   <property name="text">
+    <string>NOT AVAILABLE</string>
    </property>
   </widget>
  </widget>

@@ -28,13 +28,13 @@ namespace A20 {
     /* ************************************************************* */
     /* ********************** GPIO Class *************************** */
     /* ************************************************************* */
-    void GPIO::init() throw(GPIO_exception) {
+    void GPIO::init() {
         if(sunxi_gpio_init() < 0) {
             throw new GPIO_exception("unable to init sunxi");
         }
     }
     
-    GPIO_input* GPIO::get_input(uint16_t port, pull_resistor_t pull_resistor) throw(GPIO_exception) {
+    GPIO_input* GPIO::get_input(uint16_t port, pull_resistor_t pull_resistor) {
         
         // First of all, search for already registered pin
         for(std::vector<GPIO_common*>::iterator it = registered.begin(); it != registered.end(); ++it) {
@@ -56,7 +56,7 @@ namespace A20 {
         return new_input;
     }
     
-    GPIO_output* GPIO::get_output(uint16_t port) throw(GPIO_exception) {
+    GPIO_output* GPIO::get_output(uint16_t port) {
         
         // First of all, search for already registered pin
         for(std::vector<GPIO_common*>::iterator it = registered.begin(); it != registered.end(); ++it) {
@@ -78,7 +78,7 @@ namespace A20 {
         return new_output;
     }
     
-    void GPIO::set_periphery_mode(uint16_t port) throw(GPIO_exception) {
+    void GPIO::set_periphery_mode(uint16_t port) {
         // First of all, search for already registered pin
         for(std::vector<GPIO_common*>::iterator it = registered.begin(); it != registered.end(); ++it) {
 
@@ -98,7 +98,7 @@ namespace A20 {
         registered.push_back(new_per);
     }
     
-    void GPIO::free(uint16_t port) throw(GPIO_exception) {
+    void GPIO::free(uint16_t port) {
         for(std::vector<GPIO_common*>::iterator it = registered.begin(); it != registered.end(); ++it) {
             if ( (*it)->get_port() == port ) {
                 delete *it;                // Unexport the pin

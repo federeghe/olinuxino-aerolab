@@ -1,5 +1,11 @@
 #include <QWidget>
-//#include "logic/include/gpio.hpp"
+#include <QTimer>
+
+
+namespace A20 {
+	class GPIO_input;
+	class GPIO_output;
+}
 
 namespace Ui {
     class GPIOTab;
@@ -22,9 +28,14 @@ public:
 private slots:
 
     void updateGPIOData();
+    void changedTimer();
 	void GPIOOutput();
 
 private:
     Ui::GPIOTab *ui;
+    A20::GPIO_input* gpio_in;
+	A20::GPIO_output* gpio_out;
 
+
+	QTimer *timer_update;
 };
